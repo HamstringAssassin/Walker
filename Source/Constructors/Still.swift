@@ -11,7 +11,7 @@ public func distill(sets: (animation: CAKeyframeAnimation, final: NSValue)..., v
 
   for set in sets {
     guard let keyPath = set.animation.keyPath, property = Animation.Property(rawValue: keyPath),
-      presentedLayer = view.layer.presentationLayer() as? CALayer else { break }
+      presentedLayer = view.layer.presentationLayer() else { break }
 
     if let _ = set.animation.timingFunction {
       set.animation.values = [Animation.propertyValue(property, layer: presentedLayer), set.final]

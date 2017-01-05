@@ -8,7 +8,7 @@ public func closeDistilleries() {
   distilleries.removeAll()
 }
 
-public class Distillery: NSObject {
+public class Distillery: NSObject, CAAnimationDelegate {
 
   var ingredients: [[Ingredient]] = [[]]
   var delays: [NSTimeInterval] = []
@@ -42,7 +42,7 @@ public class Distillery: NSObject {
       guard let ingredient = self.ingredients.first else { return }
 
       for (_, ingredient) in ingredient.enumerate() {
-        guard let presentedLayer = ingredient.view.layer.presentationLayer() as? CALayer else { return }
+        guard let presentedLayer = ingredient.view.layer.presentationLayer() else { return }
 
         for (index, animation) in ingredient.animations.enumerate() {
           let property = ingredient.properties[index]
@@ -68,7 +68,7 @@ public class Distillery: NSObject {
 
   // MARK: - Finish animation
 
-  public override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+  public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
     guard var group = ingredients.first, let animation = anim as? CAKeyframeAnimation else { return }
 
     var index = 0
@@ -84,7 +84,7 @@ public class Distillery: NSObject {
 
     let ingredient = group[index]
 
-    guard let layer = ingredient.view.layer.presentationLayer() as? CALayer else { return }
+    guard let layer = ingredient.view.layer.presentationLayer() else { return }
 
     if ingredient.properties.contains(.Transform) {
       ingredient.view.layer.transform = layer.transform

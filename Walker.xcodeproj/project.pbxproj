@@ -150,6 +150,7 @@
 				TargetAttributes = {
 					292D71C21C94930C00CFC060 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -302,6 +303,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.RamonGilabert.Walker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -318,6 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.RamonGilabert.Walker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
